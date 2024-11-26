@@ -17,10 +17,10 @@ const routes = createBrowserRouter([
                 path: "/",
                 element: <Home />,
                 loader: async () => {
-                    const categoriesResponse = await fetch('/public/categories.json');
+                    const categoriesResponse = await fetch('../categories.json');
                     const categories = await categoriesResponse.json();
                     
-                    const gadgetsResponse = await fetch('/public/gadgets.json');
+                    const gadgetsResponse = await fetch('../gadgets.json');
                     const gadgets = await gadgetsResponse.json();
                     
                     return { categories, gadgets };
@@ -55,7 +55,7 @@ const routes = createBrowserRouter([
             {
                 path: '/gadget/:id',
                 element: <GadgetDetails></GadgetDetails>,
-                loader: ()=> fetch('/public/gadgets.json'),
+                loader: ()=> fetch('../gadgets.json'),
             },
             {
                 path: '*',
